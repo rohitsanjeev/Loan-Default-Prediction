@@ -1,0 +1,63 @@
+🔹 Step Flow
+
+Data Preprocessing
+
+Handle missing values, encode categorical variables, scale features.
+
+Train-Test Split
+
+Stratify by target to maintain class distribution.
+
+Handle Imbalance
+
+Use SMOTE, class weights, or scale_pos_weight.
+
+Train Models
+
+XGBoost, LightGBM, etc.
+
+Hyperparameter Tuning (optional but recommended)
+
+Use GridSearchCV or RandomizedSearchCV to maximize metrics like F1-score for class 1.
+
+Evaluate Probabilities
+
+Predict probabilities instead of class labels: y_probs = model.predict_proba(X_test)[:,1]
+
+Find Optimal Threshold ✅
+
+Default threshold is 0.5 → class 1 if probability ≥ 0.5.
+
+For imbalanced datasets, 0.5 is often not optimal.
+
+You can choose a threshold that maximizes F1-score, recall, or another metric.
+
+
+
+
+loan_default_api/
+├── main.py
+├── models/
+│   └── loan_default_pipeline.pkl
+├── requirements.txt
+
+
+{
+    "LoanID": "LN003",
+    "Age": 55,
+    "Income": 50000,
+    "LoanAmount": 80000,
+    "CreditScore": 400,
+    "MonthsEmployed": 12,
+    "NumCreditLines": 2,
+    "InterestRate": 18.0,
+    "LoanTerm": 48,
+    "DTIRatio": 1.2,
+    "Education": "High School",
+    "EmploymentType": "Contract",
+    "MaritalStatus": "Divorced",
+    "HasMortgage": "Yes",
+    "HasDependents": "Yes",
+    "LoanPurpose": "Business",
+    "HasCoSigner": "Yes"
+  }
